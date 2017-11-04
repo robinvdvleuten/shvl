@@ -1,6 +1,6 @@
 # shvl
 
-Get and set dot-notated properties within an object in only __164b__.
+Get and set dot-notated properties within an object in only __157b__.
 
 [![Build Status](https://travis-ci.org/robinvdvleuten/shvl.svg?branch=master)](https://travis-ci.org/robinvdvleuten/shvl)
 

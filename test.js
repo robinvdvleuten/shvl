@@ -71,6 +71,8 @@ cases('set({}, key, value)', ({ obj, key, value, expected }) => {
   "set(obj, 'one.two', 'bar')": { key: 'one.two', value: 'bar', expected: { one: { two: 'bar' } } },
   "set(obj, 'a.b.three', 'baz')": { key: 'a.b.three', value: 'baz', expected: { a: { b: { three: 'baz' } } } },
   "set(obj, 'a.b.c', 'bar')": { key: 'a.b.c', value: 'bar', expected: { a: { b: { c: 'bar' } } }, obj: { a: { b: { c: 'foo' } } } },
+  "set(obj, 'a.b', 'foo')": { key: 'a.b', value: 'foo', expected: { a: { b: 'foo' } }, obj: { a: { b: undefined } } },
+  "set(obj, 'a.b', undefined)": { key: 'a.b', value: undefined, expected: { a: { b: undefined } }, obj: { a: { b: 'foo' } } },
 });
 
 cases('set(undefined, key, value)', ({ obj, key, value }) => {
