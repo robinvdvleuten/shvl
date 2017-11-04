@@ -21,7 +21,9 @@
     "build:cjs": "rollup -i $npm_package_jsnext_main -f cjs --no-strict | uglifyjs -cm -o $npm_package_main",
     "build:umd": "rollup -i $npm_package_jsnext_main -f umd -n $npm_package_name --no-strict | uglifyjs -cm -o $npm_package_browser",
     "prepublish": "npm run build",
-    "test": "jest --env=jsdom"
+    "test": "npm-run-all --parallel test:**",
+    "test:jest": "jest --env=jsdom",
+    "test:size": "bundlesize"
   },
   "repository": {
     "type": "git",
@@ -31,9 +33,17 @@
     "url": "https://github.com/robinvdvleuten/shvl/issues"
   },
   "homepage": "https://github.com/robinvdvleuten/shvl#readme",
+  "bundlesize": [
+    {
+      "path": "./dist/*.js",
+      "threshold": "300b"
+    }
+  ],
   "devDependencies": {
+    "bundlesize": "^0.15.3",
     "jest": "^20.0.1",
     "jest-in-case": "^1.0.2",
+    "npm-run-all": "^4.1.1",
     "rollup": "^0.41.6",
     "uglify-js": "^3.0.3"
   }
