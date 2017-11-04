@@ -57,10 +57,7 @@ cases('get(undefined, key, def)', ({ key, value, def }) => {
 });
 
 cases('set(obj, key, value)', ({ obj, key, value, expected }) => {
-  obj = obj || {};
-  shvl.set(obj, key, value);
-
-  expect(obj).toEqual(expected);
+  expect(shvl.set(obj || {}, key, value)).toEqual(expected);
 }, {
   "set(obj, 'foo', 'bar')": { key: 'foo', value: 'bar', expected: { foo: 'bar' }, obj: { foo: {} } },
   "set(obj, 'foo.bar', 'baz')": { key: 'foo.bar', value: 'baz', expected: { foo: { bar: 'baz' } }, obj: { foo: { bar: {} } } },
@@ -68,14 +65,12 @@ cases('set(obj, key, value)', ({ obj, key, value, expected }) => {
 });
 
 cases('set({}, key, value)', ({ obj, key, value, expected }) => {
-  obj = {}
-  shvl.set(obj, key, value);
-
-  expect(obj).toEqual(expected);
+  expect(shvl.set(obj || {}, key, value)).toEqual(expected);
 }, {
   "set(obj, 'one', 'foo')": { key: 'one', value: 'foo', expected: { one: 'foo' } },
   "set(obj, 'one.two', 'bar')": { key: 'one.two', value: 'bar', expected: { one: { two: 'bar' } } },
   "set(obj, 'a.b.three', 'baz')": { key: 'a.b.three', value: 'baz', expected: { a: { b: { three: 'baz' } } } },
+  "set(obj, 'a.b.c', 'bar')": { key: 'a.b.c', value: 'bar', expected: { a: { b: { c: 'bar' } } }, obj: { a: { b: { c: 'foo' } } } },
 });
 
 cases('set(undefined, key, value)', ({ obj, key, value }) => {
