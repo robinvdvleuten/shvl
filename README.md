@@ -2,6 +2,7 @@
 
 Get and set dot-notated properties within an object in only __157b__.
 
+[![NPM version](https://img.shields.io/npm/v/shvl.svg)](https://www.npmjs.com/package/shvl)
 [![Build Status](https://travis-ci.org/robinvdvleuten/shvl.svg?branch=master)](https://travis-ci.org/robinvdvleuten/shvl)
 
 ## Installation
