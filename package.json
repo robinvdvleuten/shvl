@@ -5,8 +5,9 @@
   "license": "MIT",
   "author": "Robin van der Vleuten <robin@webstronauts.co>",
   "main": "dist/shvl.js",
-  "browser": "dist/shvl.umd.js",
-  "jsnext:main": "index.js",
+  "module": "dist/shvl.es.js",
+  "jsnext:main": "dist/shvl.es.js",
+  "umd:main": "dist/shvl.umd.js",
   "keywords": [
     "path",
     "dot notation",
@@ -17,9 +18,7 @@
     "index.js"
   ],
   "scripts": {
-    "build": "mkdir -p dist && npm run -s build:cjs && npm run -s build:umd",
-    "build:cjs": "rollup -i $npm_package_jsnext_main -f cjs --no-strict | uglifyjs -cm -o $npm_package_main",
-    "build:umd": "rollup -i $npm_package_jsnext_main -f umd -n $npm_package_name --no-strict | uglifyjs -cm -o $npm_package_browser",
+    "build": "microbundle",
     "prepublish": "npm run build",
     "test": "npm-run-all --parallel test:**",
     "test:jest": "jest --env=jsdom",
@@ -43,8 +42,7 @@
     "bundlesize": "^0.15.3",
     "jest": "^20.0.1",
     "jest-in-case": "^1.0.2",
-    "npm-run-all": "^4.1.1",
-    "rollup": "^0.41.6",
-    "uglify-js": "^3.0.3"
+    "microbundle": "^0.2.4",
+    "npm-run-all": "^4.1.1"
   }
 }
