@@ -8,6 +8,7 @@
   "module": "dist/shvl.es.js",
   "jsnext:main": "dist/shvl.es.js",
   "umd:main": "dist/shvl.umd.js",
+  "typings": "index.d.ts",
   "keywords": [
     "path",
     "dot notation",
