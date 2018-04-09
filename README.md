@@ -10,17 +10,19 @@ Get and set dot-notated properties within an object.
 ## Installation
 
 ```
-$ npm i shvl --save
-
-or
-
-$ yarn add shvl
+npm install --save shvl
 ```
+
+The [UMD](https://github.com/umdjs/umd) build is also available on [unpkg](https://unpkg.com/shvl/dist/shvl.umd.js):
+
+<script src="//unpkg.com/shvl/dist/shvl.umd.js"></script>
+
+This exposes the shlv object as a global.
 
 ## Usage
 
 ```js
-import shvl from 'shvl';
+import * as shvl from 'shvl';
 
 let obj = {
 	a: {
