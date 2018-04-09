@@ -1,5 +1,5 @@
-const cases = require('jest-in-case');
-const shvl = require('./index');
+import cases from 'jest-in-case';
+import * as shvl from './index';
 
 const obj = {
 	undef: undefined,
