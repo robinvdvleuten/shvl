@@ -21,8 +21,9 @@
   ],
   "scripts": {
     "build": "microbundle",
-    "prepublish": "npm run build",
-    "test": "npm-run-all --parallel test:**",
+    "prepublish": "run-s build",
+    "pretest": "run-s build",
+    "test": "run-p test:**",
     "test:jest": "jest --env=jsdom",
     "test:size": "bundlesize"
   },
@@ -42,15 +43,16 @@
   ],
   "babel": {
     "presets": [
-      "env"
+      "@babel/preset-env"
     ]
   },
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-jest": "^22.4.3",
-    "babel-preset-env": "^1.6.1",
+    "@babel/core": "^7.0.0-beta.49",
+    "@babel/preset-env": "^7.0.0-beta.49",
+    "babel-core": "^7.0.0-0",
+    "babel-jest": "^23.0.1",
     "bundlesize": "^0.16.0",
-    "jest": "^22.4.2",
+    "jest": "^23.0.1",
     "jest-in-case": "^1.0.2",
     "microbundle": "^0.4.4",
     "npm-run-all": "^4.1.2"
