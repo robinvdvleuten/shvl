@@ -4,10 +4,10 @@
   "description": "Get and set dot-notated properties within an object",
   "license": "MIT",
   "author": "Robin van der Vleuten <robin@webstronauts.co>",
+  "source": "index.js",
   "main": "dist/shvl.js",
-  "module": "dist/shvl.es.js",
-  "jsnext:main": "dist/shvl.es.js",
-  "umd:main": "dist/shvl.umd.js",
+  "module": "dist/shvl.mjs",
+  "unpkg": "dist/shvl.umd.js",
   "typings": "index.d.ts",
   "keywords": [
     "path",
