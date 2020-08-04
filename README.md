@@ -6,8 +6,13 @@ Get and set dot-notated properties within an object.
 
 <hr />
 
-[![NPM version](https://img.shields.io/npm/v/shvl.svg)](https://www.npmjs.com/package/shvl)
-[![Build Status](https://travis-ci.org/robinvdvleuten/shvl.svg?branch=master)](https://travis-ci.org/robinvdvleuten/shvl)
+[![Build Status](https://img.shields.io/github/workflow/status/robinvdvleuten/shvl/test.svg?style=flat-square)](https://github.com/robinvdvleuten/shvl/actions?query=workflow%3Atest)
+[![NPM version](https://img.shields.io/npm/v/shvl.svg?style=flat-square)](https://www.npmjs.com/package/shvl)
+[![NPM downloads](https://img.shields.io/npm/dm/shvl.svg?style=flat-square)](https://www.npmjs.com/package/shvl)
+
+<a href="https://webstronauts.com/">
+	<img src="https://webstronauts.com/badges/sponsored-by-webstronauts.svg" alt="Sponsored by The Webstronauts" width="200" height="65">
+</a>
 
 ## Installation
 
