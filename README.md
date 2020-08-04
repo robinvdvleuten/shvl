@@ -54,6 +54,10 @@ shvl.get(obj, ['a', 'b', 'c']) === 1;
 shvl.get(obj, 'a.b.c.f') === undefined;
 ```
 
+## Changelog
+
+Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
+
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE) for more information.
