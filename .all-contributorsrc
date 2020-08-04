@@ -7,6 +7,24 @@
   ],
   "imageSize": 100,
   "commit": true,
+  "contributors": [
+    {
+      "login": "robinvdvleuten",
+      "name": "Robin van der Vleuten",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/238295?v=4",
+      "profile": "https://robinvdvleuten.nl/",
+      "contributions": [
+        "question",
+        "code",
+        "doc",
+        "example",
+        "ideas",
+        "infra",
+        "review",
+        "test"
+      ]
+    }
+  ],
   "contributorsPerLine": 7,
   "commitConvention": "none",
   "repoHost": "https://github.com",

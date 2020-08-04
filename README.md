@@ -66,6 +66,16 @@ Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed re
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://robinvdvleuten.nl/"><img src="https://avatars3.githubusercontent.com/u/238295?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Robin van der Vleuten</b></sub></a><br /><a href="#question-robinvdvleuten" title="Answering Questions">💬</a> <a href="https://github.com/robinvdvleuten/shvl/commits?author=robinvdvleuten" title="Code">💻</a> <a href="https://github.com/robinvdvleuten/shvl/commits?author=robinvdvleuten" title="Documentation">📖</a> <a href="#example-robinvdvleuten" title="Examples">💡</a> <a href="#ideas-robinvdvleuten" title="Ideas, Planning, & Feedback">🤔</a> <a href="#infra-robinvdvleuten" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/robinvdvleuten/shvl/pulls?q=is%3Apr+reviewed-by%3Arobinvdvleuten" title="Reviewed Pull Requests">👀</a> <a href="https://github.com/robinvdvleuten/shvl/commits?author=robinvdvleuten" title="Tests">⚠️</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-enable -->
+<!-- prettier-ignore-end -->
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
