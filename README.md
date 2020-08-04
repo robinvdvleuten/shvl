@@ -71,6 +71,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tr>
     <td align="center"><a href="https://robinvdvleuten.nl/"><img src="https://avatars3.githubusercontent.com/u/238295?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Robin van der Vleuten</b></sub></a><br /><a href="#question-robinvdvleuten" title="Answering Questions">💬</a> <a href="https://github.com/robinvdvleuten/shvl/commits?author=robinvdvleuten" title="Code">💻</a> <a href="https://github.com/robinvdvleuten/shvl/commits?author=robinvdvleuten" title="Documentation">📖</a> <a href="#example-robinvdvleuten" title="Examples">💡</a> <a href="#ideas-robinvdvleuten" title="Ideas, Planning, & Feedback">🤔</a> <a href="#infra-robinvdvleuten" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/robinvdvleuten/shvl/pulls?q=is%3Apr+reviewed-by%3Arobinvdvleuten" title="Reviewed Pull Requests">👀</a> <a href="https://github.com/robinvdvleuten/shvl/commits?author=robinvdvleuten" title="Tests">⚠️</a></td>
+    <td align="center"><a href="https://github.com/ajenkinski"><img src="https://avatars0.githubusercontent.com/u/20757262?v=4?s=100" width="100px;" alt=""/><br /><sub><b>ajenkinski</b></sub></a><br /><a href="https://github.com/robinvdvleuten/shvl/commits?author=ajenkinski" title="Code">💻</a></td>
   </tr>
 </table>
 
