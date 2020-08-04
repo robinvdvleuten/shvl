@@ -21,8 +21,7 @@
   ],
   "scripts": {
     "build": "microbundle",
-    "prepublish": "run-s build",
-    "pretest": "run-s build",
+    "prepare": "run-s build",
     "test": "run-p test:**",
     "test:jest": "jest --env=jsdom",
     "test:size": "bundlesize"
