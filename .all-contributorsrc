@@ -1,0 +1,14 @@
+{
+  "projectName": "shvl",
+  "projectOwner": "robinvdvleuten",
+  "repoType": "github",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": true,
+  "contributorsPerLine": 7,
+  "commitConvention": "none",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
