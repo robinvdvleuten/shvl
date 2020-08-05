@@ -48,7 +48,7 @@
   "devDependencies": {
     "@babel/core": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
-    "babel-jest": "^24.7.1",
+    "babel-jest": "^26.2.2",
     "bundlesize": "^0.18.0",
     "jest": "^24.7.1",
     "jest-in-case": "^1.0.2",
