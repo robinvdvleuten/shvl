@@ -4,8 +4,12 @@ export function get (object, path, def) {
   }, object)) === undefined ? def : object;
 };
 
-export function set  (object, path, val, obj) {
+export function set (object, path, val, obj) {
   return ((path = path.split ? path.split('.') : path.slice(0)).slice(0, -1).reduce(function (obj, p) {
-    return obj[p] = obj[p] || {};
+    return obj[p] = isPrototypePolluted(p) || obj[p] || {};
   }, obj = object)[path.pop()] = val), object;
 };
+
+function isPrototypePolluted (key) {
+  return ['__proto__', 'constructor', 'prototype'].includes(key);
+}
