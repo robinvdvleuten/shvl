@@ -74,7 +74,11 @@ cases('set({}, key, value)', ({ obj, key, value, expected }) => {
   "set(obj, 'a.b', 'foo')": { key: 'a.b', value: 'foo', expected: { a: { b: 'foo' } }, obj: { a: { b: undefined } } },
   "set(obj, 'a.b', undefined)": { key: 'a.b', value: undefined, expected: { a: { b: undefined } }, obj: { a: { b: 'foo' } } },
   "set(obj, '__proto__', 'foo')": { key: "__proto__", value: "foo", expected: {} },
-  "set(obj, 'a.__proto__', 'foo')": { key: "__proto__", value: "foo", expected: { a: undefined } },
+  "set(obj, 'a.__proto__', 'foo')": { key: "__proto__", value: "foo", expected: { a: undefined } },  
+  "set(obj, 'constructor', 'foo')": { key: "constructor", value: "foo", expected: {} },
+  "set(obj, 'a.constructor', 'foo')": { key: "constructor", value: "foo", expected: { a: undefined } },
+  "set(obj, 'prototype', 'foo')": { key: "prototype", value: "foo", expected: {} },
+  "set(obj, 'a.prototype', 'foo')": { key: "prototype", value: "foo", expected: { a: undefined } },
 });
 
 cases('set(undefined, key, value)', ({ obj, key, value }) => {
