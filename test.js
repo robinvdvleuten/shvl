@@ -73,6 +73,8 @@ cases('set({}, key, value)', ({ obj, key, value, expected }) => {
   "set(obj, 'a.b.c', 'bar')": { key: 'a.b.c', value: 'bar', expected: { a: { b: { c: 'bar' } } }, obj: { a: { b: { c: 'foo' } } } },
   "set(obj, 'a.b', 'foo')": { key: 'a.b', value: 'foo', expected: { a: { b: 'foo' } }, obj: { a: { b: undefined } } },
   "set(obj, 'a.b', undefined)": { key: 'a.b', value: undefined, expected: { a: { b: undefined } }, obj: { a: { b: 'foo' } } },
+  "set(obj, '___proto___.a', 'foo')": { key: '___proto___.a', value: 'foo', expected: { ___proto___: { a: 'foo' } } },
+  "set(obj, 'a.constructorx.b', 'foo')": { key: 'a.constructorx.b', value: 'foo', expected: { a: { constructorx: { b: 'foo' } } } },
 });
 
 // prevent prototype pollution
