@@ -52,7 +52,7 @@
     "bundlesize": "^0.18.0",
     "jest": "^27.0.3",
     "jest-in-case": "^1.0.2",
-    "microbundle": "^0.13.0",
+    "microbundle": "^0.14.0",
     "npm-run-all": "^4.1.2"
   }
 }
