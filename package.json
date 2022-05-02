@@ -50,7 +50,7 @@
     "@babel/preset-env": "^7.0.0",
     "babel-jest": "^28.0.3",
     "bundlesize": "^0.18.0",
-    "jest": "^27.0.3",
+    "jest": "^28.0.3",
     "jest-in-case": "^1.0.2",
     "microbundle": "^0.15.0",
     "npm-run-all": "^4.1.2"
