@@ -23,7 +23,7 @@
     "build": "microbundle",
     "prepare": "run-s build",
     "test": "run-p test:**",
-    "test:jest": "jest --env=jsdom",
+    "test:jest": "jest",
     "test:size": "bundlesize"
   },
   "repository": {
@@ -34,23 +34,27 @@
     "url": "https://github.com/robinvdvleuten/shvl/issues"
   },
   "homepage": "https://github.com/robinvdvleuten/shvl#readme",
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ]
+  },
   "bundlesize": [
     {
       "path": "./dist/*.js",
       "threshold": "300b"
     }
   ],
-  "babel": {
-    "presets": [
-      "@babel/preset-env"
-    ]
+  "jest": {
+    "testEnvironment": "jsdom"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "babel-jest": "^28.0.3",
     "bundlesize": "^0.18.0",
-    "jest": "^27.0.3",
+    "jest": "^28.0.3",
+    "jest-environment-jsdom": "^28.0.2",
     "jest-in-case": "^1.0.2",
     "microbundle": "^0.15.0",
     "npm-run-all": "^4.1.2"
