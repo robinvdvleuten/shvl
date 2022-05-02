@@ -56,6 +56,17 @@ cases('get(undefined, key, def)', ({ key, value, def }) => {
   "get(undefined, 'one', 'foo')": { key: 'one', value: 'foo', def: 'foo' },
 });
 
+// Prevent prototype pollution.
+cases('get(Object, key)', ({ key, value, test }) => {
+  shvl.set({}, key, value);
+  expect(shvl.get(Object, test || key)).toEqual(undefined);
+}, {
+  "set({}, '__proto__.b', 'foo')": { key: '__proto__.b', value: 'foo' },
+  "set({}, 'a.__proto__.b', 'foo')": { key: 'a.__proto__.b', value: 'foo' },
+  "set({}, 'constructor.prototype.b', 'foo')": { key: 'constructor.prototype.b', value: 'foo'},
+  "set({}, 'a.constructor.prototype.b', 'foo')": { key: 'a.constructor.prototype.b', value: 'foo'}
+});
+
 cases('set(obj, key, value)', ({ obj, key, value, expected }) => {
   expect(shvl.set(obj || {}, key, value)).toEqual(expected);
 }, {
@@ -75,17 +86,6 @@ cases('set({}, key, value)', ({ obj, key, value, expected }) => {
   "set(obj, 'a.b', undefined)": { key: 'a.b', value: undefined, expected: { a: { b: undefined } }, obj: { a: { b: 'foo' } } },
   "set(obj, '___proto___.a', 'foo')": { key: '___proto___.a', value: 'foo', expected: { ___proto___: { a: 'foo' } } },
   "set(obj, 'a.constructorx.b', 'foo')": { key: 'a.constructorx.b', value: 'foo', expected: { a: { constructorx: { b: 'foo' } } } },
-});
-
-// prevent prototype pollution
-cases('get(Object, key)', ({ key, value, test }) => {
-  shvl.set({}, key, value);
-  expect(shvl.get(Object, test || key)).toEqual(undefined);
-}, {
-  "set({}, '__proto__.b', 'foo')": { key: '__proto__.b', value: 'foo' },
-  "set({}, 'a.__proto__.b', 'foo')": { key: 'a.__proto__.b', value: 'foo' },
-  "set({}, 'constructor.prototype.b', 'foo')": { key: 'constructor.prototype.b', value: 'foo'},
-  "set({}, 'a.constructor.prototype.b', 'foo')": { key: 'a.constructor.prototype.b', value: 'foo'}
 });
 
 cases('set(undefined, key, value)', ({ obj, key, value }) => {
