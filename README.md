@@ -29,12 +29,12 @@ The [UMD](https://github.com/umdjs/umd) build is also available on [unpkg](https
 <script src="//unpkg.com/shvl/dist/shvl.umd.js"></script>
 ```
 
-This exposes the shlv object as a global.
+This exposes the shvl object as a global.
 
 ## Usage
 
 ```js
-import * as shvl from 'shvl';
+import { get, set } from 'shvl';
 
 let obj = {
 	a: {
@@ -47,14 +47,14 @@ let obj = {
 };
 
 // Use dot notation for keys
-shvl.set(obj, 'a.b.c', 2);
-shvl.get(obj, 'a.b.c') === 2;
+set(obj, 'a.b.c', 2);
+get(obj, 'a.b.c') === 2;
 
 // Or use an array as key
-shvl.get(obj, ['a', 'b', 'c']) === 1;
+get(obj, ['a', 'b', 'c']) === 1;
 
 // Returns undefined if the path does not exist and no default is specified
-shvl.get(obj, 'a.b.c.f') === undefined;
+get(obj, 'a.b.c.f') === undefined;
 ```
 
 ## Changelog
