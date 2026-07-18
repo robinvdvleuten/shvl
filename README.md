@@ -11,10 +11,10 @@ Get and set dot-notated properties within an object. **~190 bytes min+gzip, zero
 [![NPM downloads](https://img.shields.io/npm/dm/shvl.svg)](https://www.npmjs.com/package/shvl)
 [![MIT license](https://img.shields.io/github/license/robinvdvleuten/shvl.svg)](https://github.com/robinvdvleuten/shvl/blob/main/LICENSE)
 
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
-
-<a href="https://webstronauts.com/">
-	<img src="https://webstronauts.com/images/sponsored-by.svg" alt="Sponsored by The Webstronauts" width="200" height="65">
+<a href="https://webstronauts.com?utm_source=github&utm_medium=readme&utm_campaign=shvl">
+	<picture>
+		<img src="https://webstronauts.com/images/sponsored-by.svg" alt="Sponsored by The Webstronauts" width="200" height="65">
+	</picture>
 </a>
 
 ## Installation
