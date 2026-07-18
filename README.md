@@ -1,15 +1,15 @@
 # shvl
 
-Get and set dot-notated properties within an object.
+Get and set dot-notated properties within an object. **~190 bytes min+gzip, zero dependencies.**
 
 <img src="https://media.giphy.com/media/3o85xLDQLoZD1rk07u/giphy-downsized.gif" width="350" />
 
 <hr />
 
-[![Build Status](https://img.shields.io/github/workflow/status/robinvdvleuten/shvl/test.svg)](https://github.com/robinvdvleuten/shvl/actions?query=workflow%3Atest)
 [![NPM version](https://img.shields.io/npm/v/shvl.svg)](https://www.npmjs.com/package/shvl)
+[![Build Status](https://github.com/robinvdvleuten/shvl/actions/workflows/test.yml/badge.svg)](https://github.com/robinvdvleuten/shvl/actions/workflows/test.yml)
 [![NPM downloads](https://img.shields.io/npm/dm/shvl.svg)](https://www.npmjs.com/package/shvl)
-[![MIT license](https://img.shields.io/github/license/robinvdvleuten/shvl.svg)](https://github.com/robinvdvleuten/shvl/blob/master/LICENSE)
+[![MIT license](https://img.shields.io/github/license/robinvdvleuten/shvl.svg)](https://github.com/robinvdvleuten/shvl/blob/main/LICENSE)
 
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
@@ -23,13 +23,11 @@ Get and set dot-notated properties within an object.
 npm install --save shvl
 ```
 
-The [UMD](https://github.com/umdjs/umd) build is also available on [unpkg](https://unpkg.com/shvl/dist/shvl.umd.js):
+The [UMD](https://github.com/umdjs/umd) build is also available on [unpkg](https://unpkg.com/shvl/dist/index.umd.js), exposing `shvl` as a global:
 
 ```
-<script src="//unpkg.com/shvl/dist/shvl.umd.js"></script>
+<script src="//unpkg.com/shvl/dist/index.umd.js"></script>
 ```
-
-This exposes the shlv object as a global.
 
 ## Usage
 
@@ -39,11 +37,11 @@ import * as shvl from 'shvl';
 let obj = {
 	a: {
 		b: {
-			c: 1
-			d: undefined
-			e: null
-		}
-	}
+			c: 1,
+			d: undefined,
+			e: null,
+		},
+	},
 };
 
 // Use dot notation for keys
@@ -51,11 +49,28 @@ shvl.set(obj, 'a.b.c', 2);
 shvl.get(obj, 'a.b.c') === 2;
 
 // Or use an array as key
-shvl.get(obj, ['a', 'b', 'c']) === 1;
+shvl.get(obj, ['a', 'b', 'c']) === 2;
 
 // Returns undefined if the path does not exist and no default is specified
 shvl.get(obj, 'a.b.c.f') === undefined;
+
+// Pass a third argument to get a fallback instead of undefined
+shvl.get(obj, 'a.b.c.f', 'fallback') === 'fallback';
 ```
+
+## API
+
+### `get(object, path, default?)`
+
+Reads the value at `path`, a dot-string or an array of keys. Returns `default` when the path does not resolve, or `undefined` when no default is given.
+
+### `set(object, path, value)`
+
+Writes `value` at `path`, creating intermediate objects along the way, and returns the mutated object.
+
+## Safety
+
+`set` never writes through `__proto__` or `constructor`, so a crafted path like `constructor.prototype.polluted` cannot reach `Object.prototype`. The guard compares keys with strict equality rather than a regular expression, so overriding `RegExp.prototype.test` cannot bypass it.
 
 ## Changelog
 

@@ -1,62 +1,45 @@
 {
-  "name": "shvl",
-  "version": "3.0.0",
-  "description": "Get and set dot-notated properties within an object",
-  "license": "MIT",
-  "author": "Robin van der Vleuten <robin@webstronauts.co>",
-  "source": "index.js",
-  "main": "dist/shvl.js",
-  "module": "dist/shvl.mjs",
-  "unpkg": "dist/shvl.umd.js",
-  "typings": "index.d.ts",
-  "keywords": [
-    "path",
-    "dot notation",
-    "dot"
-  ],
-  "files": [
-    "dist",
-    "index.d.ts",
-    "index.js"
-  ],
-  "scripts": {
-    "build": "microbundle",
-    "prepare": "run-s build",
-    "test": "run-p test:**",
-    "test:jest": "jest",
-    "test:size": "bundlesize"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/robinvdvleuten/shvl.git"
-  },
-  "bugs": {
-    "url": "https://github.com/robinvdvleuten/shvl/issues"
-  },
-  "homepage": "https://github.com/robinvdvleuten/shvl#readme",
-  "babel": {
-    "presets": [
-      "@babel/preset-env"
-    ]
-  },
-  "bundlesize": [
-    {
-      "path": "./dist/*.js",
-      "threshold": "300b"
-    }
-  ],
-  "jest": {
-    "testEnvironment": "jsdom"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.0.0",
-    "@babel/preset-env": "^7.0.0",
-    "babel-jest": "^29.0.1",
-    "bundlesize": "^0.18.0",
-    "jest": "^29.0.1",
-    "jest-environment-jsdom": "^29.0.1",
-    "jest-in-case": "^1.0.2",
-    "microbundle": "^0.15.0",
-    "npm-run-all": "^4.1.2"
-  }
+	"name": "shvl",
+	"version": "3.0.0",
+	"description": "Get and set dot-notated properties within an object",
+	"repository": "robinvdvleuten/shvl",
+	"license": "MIT",
+	"author": {
+		"name": "Robin van der Vleuten",
+		"email": "robin@webstronauts.com",
+		"url": "https://robinvdvleuten.nl"
+	},
+	"type": "module",
+	"source": "src/index.js",
+	"main": "./dist/index.cjs",
+	"module": "./dist/index.module.js",
+	"unpkg": "./dist/index.umd.js",
+	"types": "./index.d.ts",
+	"exports": {
+		".": {
+			"types": "./index.d.ts",
+			"import": "./dist/index.module.js",
+			"require": "./dist/index.cjs",
+			"default": "./dist/index.module.js"
+		}
+	},
+	"files": [
+		"dist",
+		"src",
+		"index.d.ts"
+	],
+	"scripts": {
+		"build": "microbundle --no-sourcemap --generateTypes false",
+		"prepublishOnly": "npm run build",
+		"test": "tape test/*.test.js"
+	},
+	"keywords": [
+		"path",
+		"dot notation",
+		"dot"
+	],
+	"devDependencies": {
+		"microbundle": "^0.15.1",
+		"tape": "^5.9.0"
+	}
 }
