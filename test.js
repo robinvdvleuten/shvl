@@ -93,3 +93,16 @@ cases('set(undefined, key, value)', ({ obj, key, value }) => {
 }, {
   "set(obj, 'foo', 'bar')": { key: 'foo', value: 'bar' },
 });
+
+// The guard must not rely on an overridable prototype method: the reported
+// bypass monkey-patches RegExp.prototype.test, so the check uses ===, not a regex.
+test('resists RegExp.prototype.test tampering', () => {
+  const orig = RegExp.prototype.test;
+  RegExp.prototype.test = () => false;
+  try {
+    shvl.set({}, 'constructor.prototype.polluted', 'yes');
+    expect({}.polluted).toBeUndefined();
+  } finally {
+    RegExp.prototype.test = orig;
+  }
+});
