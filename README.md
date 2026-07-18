@@ -14,7 +14,7 @@ Get and set dot-notated properties within an object. **~190 bytes min+gzip, zero
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
 <a href="https://webstronauts.com/">
-	<img src="https://webstronauts.com/badges/sponsored-by-webstronauts.svg" alt="Sponsored by The Webstronauts" width="200" height="65">
+	<img src="https://webstronauts.com/images/sponsored-by.svg" alt="Sponsored by The Webstronauts" width="200" height="65">
 </a>
 
 ## Installation
