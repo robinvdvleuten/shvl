@@ -11,16 +11,14 @@
 	},
 	"type": "module",
 	"source": "src/index.js",
-	"main": "./dist/index.cjs",
-	"module": "./dist/index.module.js",
-	"unpkg": "./dist/index.umd.js",
-	"types": "./index.d.ts",
+	"main": "dist/index.cjs",
+	"module": "dist/index.js",
+	"types": "index.d.ts",
 	"exports": {
 		".": {
 			"types": "./index.d.ts",
-			"import": "./dist/index.module.js",
-			"require": "./dist/index.cjs",
-			"default": "./dist/index.module.js"
+			"import": "./dist/index.js",
+			"require": "./dist/index.cjs"
 		}
 	},
 	"files": [
@@ -28,9 +26,20 @@
 		"src",
 		"index.d.ts"
 	],
+	"size-limit": [
+		{
+			"path": "dist/index.js",
+			"limit": "0.3 kB"
+		},
+		{
+			"path": "dist/index.cjs",
+			"limit": "0.3 kB"
+		}
+	],
 	"scripts": {
-		"build": "microbundle --no-sourcemap --generateTypes false",
+		"build": "tsdown",
 		"prepublishOnly": "npm run build",
+		"size": "size-limit",
 		"test": "tape test/*.test.js"
 	},
 	"keywords": [
@@ -39,7 +48,9 @@
 		"dot"
 	],
 	"devDependencies": {
-		"microbundle": "^0.15.1",
-		"tape": "^5.9.0"
+		"@size-limit/file": "^12.1.0",
+		"size-limit": "^12.1.0",
+		"tape": "^5.9.0",
+		"tsdown": "^0.22.12"
 	}
 }
