@@ -48,7 +48,7 @@
 		"dot"
 	],
 	"devDependencies": {
-		"@size-limit/file": "^12.1.0",
+		"@size-limit/file": "^13.0.1",
 		"size-limit": "^12.1.0",
 		"tape": "^5.9.0",
 		"tsdown": "^0.22.12"
