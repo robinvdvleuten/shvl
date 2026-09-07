@@ -12,6 +12,11 @@ updates:
     commit-message:
       prefix: "chore"
       include: "scope"
+    groups:
+      size:
+        patterns:
+          - "@size-limit/*"
+          - "size-limit"
 
   - package-ecosystem: "github-actions"
     directory: "/"
