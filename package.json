@@ -1,6 +1,6 @@
 {
 	"name": "shvl",
-	"version": "3.0.2",
+	"version": "3.0.3",
 	"description": "Get and set dot-notated properties within an object",
 	"repository": "robinvdvleuten/shvl",
 	"license": "MIT",
