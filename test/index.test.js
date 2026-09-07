@@ -58,6 +58,8 @@ test('set does not pollute prototypes', t => {
 	shvl.set({}, 'a.__proto__.b', 'foo');
 	shvl.set({}, 'constructor.prototype.b', 'foo');
 	shvl.set({}, 'a.constructor.prototype.b', 'foo');
+	shvl.set({}, ['__proto__', 'b'], 'foo');
+	shvl.set({}, ['constructor', 'prototype', 'b'], 'foo');
 	t.equal({}.b, undefined, 'Object.prototype is untouched');
 
 	// Keys that merely look forbidden must still be settable.
@@ -66,16 +68,47 @@ test('set does not pollute prototypes', t => {
 	t.end();
 });
 
-// The guard must not rely on an overridable prototype method: the reported
-// bypass monkey-patches RegExp.prototype.test, so the check uses ===, not a regex.
+// GHSA-cgxg-7v45-5vp2: the guard must not rely on an overridable prototype
+// method. The reported bypass monkey-patches RegExp.prototype.test, so the
+// check uses === on plain strings, not a regex.
 test('set resists RegExp.prototype.test tampering', t => {
 	const orig = RegExp.prototype.test;
 	RegExp.prototype.test = () => false;
 	try {
 		shvl.set({}, 'constructor.prototype.polluted', 'yes');
-		t.equal({}.polluted, undefined);
+		t.equal({}.polluted, undefined, 'Object.prototype is untouched');
 	} finally {
 		RegExp.prototype.test = orig;
 	}
+	t.end();
+});
+
+// An array path element is coerced to a string exactly once. A stateful
+// toString() that passes the check and then returns '__proto__' when used as
+// a property key must not slip through.
+test('set resists stateful toString on array path elements', t => {
+	let calls = 0;
+	const sneaky = { toString: () => (calls++ < 2 ? 'harmless' : '__proto__') };
+	shvl.set({}, [sneaky, 'polluted'], 'yes');
+	t.equal({}.polluted, undefined, 'Object.prototype is untouched');
+	t.equal(calls, 1, 'key is coerced once');
+	t.end();
+});
+
+// A function reachable from the target exposes its shared prototype through
+// the `prototype` key; instances of that function must not be affected.
+test('set does not pollute function prototypes', t => {
+	function Ctor() {}
+	shvl.set({ Ctor }, 'Ctor.prototype.polluted', 'yes');
+	t.equal(new Ctor().polluted, undefined, 'Ctor.prototype is untouched');
+	t.end();
+});
+
+// A trailing forbidden key must not rewire the prototype chain of the object
+// it lands on either.
+test('set ignores a trailing forbidden key', t => {
+	const target = shvl.set({ a: {} }, 'a.__proto__', { leaked: true });
+	t.equal(target.a.leaked, undefined, 'prototype of a is unchanged');
+	t.equal(Object.getPrototypeOf(target.a), Object.prototype);
 	t.end();
 });

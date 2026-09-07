@@ -4,8 +4,20 @@ export function get(object, path, def) {
   }, object)) === undefined ? def : object;
 };
 
-export function set  (object, path, val, obj) {
-  return ((path = path.split ? path.split('.') : path.slice(0)).slice(0, -1).reduce(function (obj, p) {
-    return p == '__proto__' || p == 'constructor' ? {} : obj[p] = obj[p] || {};
-  }, obj = object)[path.pop()] = val), object;
+// Keys that would let a path escape the target object and reach a shared
+// prototype. Compared with === on already-stringified keys so the guard can't
+// be bypassed by monkey-patching RegExp.prototype.test or by a stateful
+// toString() that returns a different value on each coercion.
+function forbidden(key) {
+  return key === '__proto__' || key === 'constructor' || key === 'prototype';
+}
+
+export function set(object, path, val, key) {
+  path = (path.split ? path.split('.') : path.slice(0)).map(String);
+  key = path.pop();
+  path = path.reduce(function (obj, p) {
+    return forbidden(p) ? {} : obj[p] = obj[p] || {};
+  }, object);
+  (forbidden(key) ? {} : path)[key] = val;
+  return object;
 };
